@@ -27,7 +27,7 @@ $sql->bindParam(':comment',$comment,PDO::PARAM_STR);
 $sql->bindParam(':date', $date, PDO::PARAM_STR);
 $sql->bindParam(':pass',$pass,PDO::PARAM_STR);
 
-//ここまでで変数を書き込む形が完成。$id,$name,$commentを以下で指定していく
+//ここまでで変数を書き込む形が完成。$id,$name,$comment,$passを以下で指定していく
 
 //変数定義
 $button1=$_POST['button1'];
@@ -58,7 +58,6 @@ if($button1 and !$editnumber) {
 
 //削除ボタン
 if($button2 and $delete){
-
 	$sql = "SELECT * FROM tbl_4 WHERE id = '$delete'";
 	$rows = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC|PDO::FETCH_UNIQUE);//配列として行を取得
 	$pass = $rows['pass'];//配列内の指定箇所を変数にする
@@ -78,7 +77,6 @@ if($button2 and $delete){
 
 
 //編集フォーム
-
 if($button3 and $edit){
 	$sql = "SELECT * FROM tbl_4 WHERE id = '$edit'";
 	$rows = $pdo->query($sql)->fetch(PDO::FETCH_ASSOC|PDO::FETCH_UNIQUE);//配列として行を取得
@@ -127,9 +125,6 @@ if($editnumber){
 		$editnumber == $id;
 		}
 }
-
-		
-
 
 //フォーム
 ?>		
